@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .text__left{
+            margin-left: 30px;
+        }
+        .text__top{
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+        {% for item in products %}
+        <h1>{{ item.name }}</h1>
+        <p>Характеристики: {{ item.specifications }}</p>
+        <p>Цена: {{ item.price }}</p>
+        <a href="{% url 'add_to_cart' item.pk %}">Добавить в корзину</a>
+        <a href="{% url 'update' item.pk %}">Изменить</a>
+        <a href="{% url 'delete' item.pk %}">Удалить</a><br>
+        <a href="{% url 'detail' item.pk %}">Подробная информация</a>
+        <hr>
+    {% endfor %}
+
+    <a class="text__top" href="{% url 'create' %}">Создать</a>
+    <a class="text__left text__top" href="{% url 'orders' %}">Мои заказы</a>
+</body>
+</html>

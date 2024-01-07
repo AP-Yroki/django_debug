@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* Устанавливаем максимальные размеры для изображения */
+        img {
+            width: 150px;
+            height: 150px;
+
+        }
+        body{
+            align-items: center;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ object.name }}</h1>
+    <p>Категория: {{ object.category }}</p>
+    <p>Описание: {{ object.description }}</p>
+    <p>Характеристики: {{ object.specifications }}</p>
+    <p>Цена: {{ object.price }}</p>
+    <p>Производитель: {{ object.manufacturer }}</p>
+
+
+    {% if object.image %}
+        <p>Изображение:</p>
+        <img src="{{ object.image.url }}" alt="Изображение">
+    {% else %}
+        <p>Изображение отсутствует</p>
+    {% endif %}
+</body>
+</html>
